@@ -26,7 +26,7 @@ sort mainOpts opts _ = do
         Just f  -> encodeFilesWith f $ chunksOf chunkSize fs
     return ()
   where
-    isSplayFile s = (take 6 . reverse) s == reverse ".splay"
+    isSplayFile s = (Data.List.take 6 . reverse) s == reverse ".splay"
     inputDir  = optSortInput opts
     outputDir = optSortOutput opts
     compFunc  = optSortMethod opts
