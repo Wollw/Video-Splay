@@ -2,12 +2,12 @@
 -- documentation, see http://haskell.org/cabal/users-guide/
 
 name:                Video-Splay
-version:             0.1.0.0
+version:             0.1.0.1
 -- synopsis:            
 -- description:         
 -- license:             
 license-file:        LICENSE
-author:              David E. Shere
+author:              Rose E. Shere
 maintainer:          rshere@wollw.com
 -- copyright:           
 -- category:            
