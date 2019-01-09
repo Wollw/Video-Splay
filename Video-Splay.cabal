@@ -17,7 +17,7 @@ cabal-version:       >=1.10
 
 executable Video-Splay
   main-is:             Main.hs
-  -- other-modules:       
+  other-modules:       Splay, Splay.Util, Splay.Combine, Splay.Splay, Splay.Sort, Splay.Options
   -- other-extensions:    
   build-depends:       base >=4.8 && <4.12.0.0,
                        ffmpeg-light >= 0.8.2 && < 0.13,

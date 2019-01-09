@@ -31,12 +31,14 @@ splay mainOpts opts _ = do
 
     -- Just needed to get width and height
     (getFrame, cleanup) <- imageReader $ File inputFile
-    (Just (ImageRGB8 i)) <- (fmap ImageRGB8 <$> getFrame) <* cleanup
-
-    -- Get and write pixel position over time data
-    encodeChunks $ chunksOf chunkSize
-        [ (x,y) | x <- [0..imageWidth  i - 1]
-                , y <- [0..imageHeight i - 1] ]
+    maybeImage <- (fmap ImageRGB8 <$> getFrame) <* cleanup
+    case maybeImage of
+        (Just (ImageRGB8 i)) ->
+            -- Get and write pixel position over time data
+            encodeChunks $ chunksOf chunkSize
+                [ (x,y) | x <- [0..imageWidth  i - 1]
+                        , y <- [0..imageHeight i - 1] ]
+        _ -> putStrLn "Error, no image."
     
   where
     chunkSize = optSplayChunkSize opts
