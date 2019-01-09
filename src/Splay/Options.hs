@@ -3,7 +3,7 @@ module Splay.Options where
 import Options
 import Data.Binary (Word8)
 
-data MainOptions = MainOptions { optVerbose :: Bool }
+newtype MainOptions = MainOptions { optVerbose :: Bool }
 instance Options MainOptions where
   defineOptions = pure MainOptions
     <*> simpleOption "verbose" False "Toggle verbose output."

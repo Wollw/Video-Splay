@@ -24,7 +24,6 @@ instance Binary PixelRGB8 where
              case t of
                 0 -> do r <- get
                         g <- get
-                        b <- get
-                        return (PixelRGB8 r g b)
+                        PixelRGB8 r g <$> get
                 _ -> return (PixelRGB8 0 0 0)
 

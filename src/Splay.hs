@@ -20,11 +20,11 @@ sortMethods o = fromList
     , ( "intersperse", \(PixelRGB8 r1 g1 b1) (PixelRGB8 r2 g2 b2) -> ((r1 + g1 + b1) `mod` modNum)
                                                             `compare` ((r2 + g2 + b2) `mod` modNum))
     , ( "intersperse-red"
-      , \(PixelRGB8 r1 _ _) (PixelRGB8 r2 _ _) -> ((r1 `mod` modNum) `compare` (r2 `mod` modNum)))
+      , \(PixelRGB8 r1 _ _) (PixelRGB8 r2 _ _) -> (r1 `mod` modNum) `compare` (r2 `mod` modNum))
     , ( "intersperse-green"
-      , \(PixelRGB8 _ g1 _) (PixelRGB8 _ g2 _) -> ((g1 `mod` modNum) `compare` (g2 `mod` modNum)))
+      , \(PixelRGB8 _ g1 _) (PixelRGB8 _ g2 _) -> (g1 `mod` modNum) `compare` (g2 `mod` modNum))
     , ( "intersperse-blue"
-      , \(PixelRGB8 _ _ b1) (PixelRGB8 _ _ b2) -> ((b1 `mod` modNum) `compare` (b2 `mod` modNum)))
+      , \(PixelRGB8 _ _ b1) (PixelRGB8 _ _ b2) -> (b1 `mod` modNum) `compare` (b2 `mod` modNum))
     , ( "difference-red-green"
       , \(PixelRGB8 r1 g1 _) (PixelRGB8 r2 g2 _) -> abs (r1 - g1) `compare` abs (r2 - g2))
     , ( "difference-red-blue"

@@ -24,7 +24,7 @@ _localCombineMethods o = fromList
 
 
 combine :: MainOptions -> CombineOptions -> [String] -> IO ()
-combine mainOpts opts _ = do
+combine mainOpts opts _ =
     case Data.Map.Strict.lookup combineMethod $ combineMethods opts of
       Nothing -> putStrLn "Combine method not found."
       (Just Nothing) -> do
@@ -58,7 +58,7 @@ _methodDefault mainOpts opts = do
     makeImage w h n = do
         i <- withImage w h $ \x y -> do
             ps <- decodeFile $ filePath inputDir x y :: IO [PixelRGB8]
-            when (x==0) $ putStrLn (show x ++ "," ++ show y)
+            --when (x==0) $ putStrLn (show x ++ "," ++ show y)
             return $ ps !! n
         writePng (printf "%s/%09d.png" outputDir n :: String) i
     imageSize :: [FilePath] -> (Int, Int)
